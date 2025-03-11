@@ -17,7 +17,10 @@ Setup : https://learn.conduktor.io/kafka/how-to-install-apache-kafka-on-mac/
 Commands : 
 
 Start the zookeeper server :
+```
 zookeeper-server-start.sh ~/kafka_2.13-3.9.0/config/zookeeper.properties
-
+```
 Start the kafka server :
+```
 kafka-server-start.sh ~/kafka_2.13-3.9.0/config/server.properties
+```
