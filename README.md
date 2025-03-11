@@ -26,3 +26,10 @@ zookeeper-server-start.sh ~/kafka_2.13-3.9.0/config/zookeeper.properties
 ```
 kafka-server-start.sh ~/kafka_2.13-3.9.0/config/server.properties
 ```
+
+```
+start-zookeeper # starts zookeeper server
+start-kafka # starts kafka server
+create-kafka-topic test-topic --partitions 1 --replication-factor 1 # creates topic
+list-kafka-topics #lists all kafka topics
+```
