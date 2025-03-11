@@ -12,7 +12,7 @@ Setup : https://learn.conduktor.io/kafka/how-to-install-apache-kafka-on-mac/
     1. edit zshrc file :  
         vi ~/.zshrc 
     2. set path variable: 
-        export PATH="$PATH:/Users/stephanemaarek/kafka_2.13-3.0.0/bin"
+        export PATH="$PATH:/Users/gandharvpathak/kafka_2.13-3.9.0/bin"
 
 Commands : 
 
