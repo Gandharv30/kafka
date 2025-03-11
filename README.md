@@ -28,7 +28,9 @@
 
 ## Commands
 
-### Start the Zookeeper server:
+### Start Servers
+
+#### Start the Zookeeper server:
 ```sh
 zookeeper-server-start.sh ~/kafka_2.13-3.9.0/config/zookeeper.properties
 ```
@@ -40,7 +42,7 @@ This command starts the Zookeeper server using the specified configuration file.
     zookeeper-server-start.sh --config ~/kafka_2.13-3.9.0/config/custom_zookeeper.properties
     ```
 
-### Start the Kafka server:
+#### Start the Kafka server:
 ```sh
 kafka-server-start.sh ~/kafka_2.13-3.9.0/config/server.properties
 ```
@@ -63,7 +65,9 @@ list-kafka-topics # lists all kafka topics
 ```
 These alias commands simplify the process of starting the Zookeeper and Kafka servers, creating a Kafka topic, listing all Kafka topics, and deleting a Kafka topic if it exists.
 
-### Create Kafka Topic:
+### Manage Kafka Topics
+
+#### Create Kafka Topic:
 ```sh
 kafka-topics.sh --bootstrap-server localhost:9092 --create --topic test --partitions 1 --replication-factor 1
 ```
@@ -79,7 +83,7 @@ This command creates a new Kafka topic named `test` with 1 partition and a repli
     kafka-topics.sh --bootstrap-server localhost:9092 --create --topic test --partitions 1 --replication-factor 1 --if-not-exists
     ```
 
-### Delete Kafka Topic:
+#### Delete Kafka Topic:
 ```sh
 kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic <topic_name>
 ```
@@ -91,13 +95,15 @@ This command deletes the specified Kafka topic.
     kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic test --if-exists
     ```
 
-### Alias Command:
+#### Alias Command:
 ```sh
 create_kafka_topic test-topic 1 # creates a Kafka topic named `test-topic` with 1 partition
 delete_kafka_topic test-topic # deletes the Kafka topic named `test-topic` if it exists
 ```
 
-### Send Data Using Kafka Console Producer:
+### Data Operations
+
+#### Send Data Using Kafka Console Producer:
 ```sh
 kafka-console-producer.sh --bootstrap-server localhost:9092 --topic test < /Users/gandharvpathak/workspace/kafka/kafka/sample.csv 
 ```
@@ -109,7 +115,7 @@ This command sends data from the `sample.csv` file to the Kafka topic named `tes
     kafka-console-producer.sh --bootstrap-server localhost:9092 --topic test --property parse.key=true < /Users/gandharvpathak/workspace/kafka/kafka/sample.csv
     ```
 
-### Read Data Using Kafka Console Consumer:
+#### Read Data Using Kafka Console Consumer:
 ```sh
 kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning
 ```
@@ -131,25 +137,29 @@ This command reads data from the Kafka topic named `test` from the beginning usi
 
 ## Commands for Remote Broker
 
-### Create Kafka Topic on Remote Broker:
+### Manage Kafka Topics on Remote Broker
+
+#### Create Kafka Topic on Remote Broker:
 ```sh
 kafka-topics.sh --bootstrap-server remote-broker:9092 --create --topic test --partitions 1 --replication-factor 1
 ```
 This command creates a new Kafka topic named `test` on a remote broker with 1 partition and a replication factor of 1.
 
-### Delete Kafka Topic on Remote Broker:
+#### Delete Kafka Topic on Remote Broker:
 ```sh
 kafka-topics.sh --bootstrap-server remote-broker:9092 --delete --topic <topic_name>
 ```
 This command deletes the specified Kafka topic on a remote broker.
 
-### Send Data Using Kafka Console Producer to Remote Broker:
+### Data Operations on Remote Broker
+
+#### Send Data Using Kafka Console Producer to Remote Broker:
 ```sh
 kafka-console-producer.sh --bootstrap-server remote-broker:9092 --topic test < /Users/gandharvpathak/workspace/kafka/kafka/sample.csv 
 ```
 This command sends data from the `sample.csv` file to the Kafka topic named `test` on a remote broker using the Kafka console producer.
 
-### Read Data Using Kafka Console Consumer from Remote Broker:
+#### Read Data Using Kafka Console Consumer from Remote Broker:
 ```sh
 kafka-console-consumer.sh --bootstrap-server remote-broker:9092 --topic test --from-beginning
 ```
