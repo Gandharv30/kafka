@@ -137,3 +137,29 @@ This command reads data from the Kafka topic named `test` from the beginning usi
     kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning --property print.key=true
     ```
     - `--property <name=value>`: Sets a consumer property.
+
+## Commands for Remote Broker
+
+### Create Kafka Topic on Remote Broker:
+```sh
+kafka-topics.sh --bootstrap-server remote-broker:9092 --create --topic test --partitions 1 --replication-factor 1
+```
+This command creates a new Kafka topic named `test` on a remote broker with 1 partition and a replication factor of 1.
+
+### Delete Kafka Topic on Remote Broker:
+```sh
+kafka-topics.sh --bootstrap-server remote-broker:9092 --delete --topic <topic_name>
+```
+This command deletes the specified Kafka topic on a remote broker.
+
+### Send Data Using Kafka Console Producer to Remote Broker:
+```sh
+kafka-console-producer.sh --bootstrap-server remote-broker:9092 --topic test < /Users/gandharvpathak/workspace/kafka/kafka/sample.csv 
+```
+This command sends data from the `sample.csv` file to the Kafka topic named `test` on a remote broker using the Kafka console producer.
+
+### Read Data Using Kafka Console Consumer from Remote Broker:
+```sh
+kafka-console-consumer.sh --bootstrap-server remote-broker:9092 --topic test --from-beginning
+```
+This command reads data from the Kafka topic named `test` from the beginning on a remote broker using the Kafka console consumer.
