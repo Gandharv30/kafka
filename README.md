@@ -1,3 +1,5 @@
+# Kafka Project
+
 ## Course Link
 
 [Apache Kafka Series - Learn Apache Kafka for Beginners v3](https://www.udemy.com/course/apache-kafka/?couponCode=ST1MT31025G3)
@@ -12,13 +14,13 @@
 
 [Setup Kafka on Mac](https://learn.conduktor.io/kafka/how-to-install-apache-kafka-on-mac/)
 
-1. Edit zshrc file:
+1. **Edit zshrc file**:
     ```sh
     vi ~/.zshrc 
     ```
     This command opens the `.zshrc` file in the `vi` editor for editing.
 
-2. Set path variable:
+2. **Set path variable**:
     ```sh
     export PATH="$PATH:/Users/gandharvpathak/kafka_2.13-3.9.0/bin"
     ```
@@ -52,16 +54,18 @@ This command starts the Kafka server using the specified configuration file.
     ```
     - `--override <property=value>`: Overrides the specified configuration property.
 
-### Alias commands:
+### Alias Commands:
 ```sh
 start-zookeeper # starts zookeeper server
 start-kafka # starts kafka server
-create-kafka-topic test-topic --partitions 1 --replication-factor 1 # creates topic
+create_kafka_topic my_topic 3 # creates topic with 3 partitions
+create_kafka_topic my_topic # creates topic with default 1 partition
+delete_kafka_topic my_topic # deletes topic if it exists
 list-kafka-topics # lists all kafka topics
 ```
-These alias commands simplify the process of starting the Zookeeper and Kafka servers, creating a Kafka topic, and listing all Kafka topics.
+These alias commands simplify the process of starting the Zookeeper and Kafka servers, creating a Kafka topic, listing all Kafka topics, and deleting a Kafka topic if it exists.
 
-### Create Kafka topic:
+### Create Kafka Topic:
 ```sh
 kafka-topics.sh --bootstrap-server localhost:9092 --create --topic test --partitions 1 --replication-factor 1
 ```
@@ -79,7 +83,7 @@ This command creates a new Kafka topic named `test` with 1 partition and a repli
     ```
     - `--if-not-exists`: Ensures the topic is created only if it does not already exist.
 
-### Delete Kafka topic:
+### Delete Kafka Topic:
 ```sh
 kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic <topic_name>
 ```
@@ -92,13 +96,13 @@ This command deletes the specified Kafka topic.
     ```
     - `--if-exists`: Ensures the topic is deleted only if it exists.
 
-### Alias command:
+### Alias Command:
 ```sh
-create-kafka-topic test-topic --partitions 1 --replication-factor 1 
+create_kafka_topic test-topic 1 # creates a Kafka topic named `test-topic` with 1 partition
+delete_kafka_topic test-topic # deletes the Kafka topic named `test-topic` if it exists
 ```
-This alias command creates a Kafka topic named `test-topic` with 1 partition and a replication factor of 1.
 
-### Send data using Kafka console producer:
+### Send Data Using Kafka Console Producer:
 ```sh
 kafka-console-producer.sh --bootstrap-server localhost:9092 --topic test < /Users/gandharvpathak/workspace/kafka/kafka/sample.csv 
 ```
@@ -111,7 +115,7 @@ This command sends data from the `sample.csv` file to the Kafka topic named `tes
     ```
     - `--property <name=value>`: Sets a producer property.
 
-### Read data using Kafka console consumer:
+### Read Data Using Kafka Console Consumer:
 ```sh
 kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning
 ```
