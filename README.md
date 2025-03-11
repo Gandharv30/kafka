@@ -41,6 +41,12 @@ list-kafka-topics #lists all kafka topics
 ```
 kafka-topics.sh --bootstrap-server localhost:9092 --create --topic test --partitions 1 --replication-factor 1
 ```
+
+### Delete kafka topic
+```
+kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic <topic_name>
+```
+
 ### Alias command
 ``` 
 create-kafka-topic test-topic --partitions 1 --replication-factor 1 
