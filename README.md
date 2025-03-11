@@ -33,3 +33,26 @@ start-kafka # starts kafka server
 create-kafka-topic test-topic --partitions 1 --replication-factor 1 # creates topic
 list-kafka-topics #lists all kafka topics
 ```
+
+### Create kafka topic
+
+#### Command 
+
+```
+kafka-topics.sh --bootstrap-server localhost:9092 --create --topic test --partitions 1 --replication-factor 1
+```
+### Alias command
+``` 
+create-kafka-topic test-topic --partitions 1 --replication-factor 1 
+``` 
+
+## Send data using kafka console producer
+
+#### kafka-console-producer.sh - name of the script
+#### bootstrap-server localhost:9092 - location of kakfa broker
+#### topic name  - test 
+#### < - separator
+#### file_name
+```
+kafka-console-producer.sh --bootstrap-server localhost:9092 --topic test < /Users/gandharvpathak/workspace/kafka/kafka/sample.csv 
+```
