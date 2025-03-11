@@ -39,7 +39,6 @@ This command starts the Zookeeper server using the specified configuration file.
     ```sh
     zookeeper-server-start.sh --config ~/kafka_2.13-3.9.0/config/custom_zookeeper.properties
     ```
-    - `--config <file>`: Path to the custom configuration file.
 
 ### Start the Kafka server:
 ```sh
@@ -52,7 +51,6 @@ This command starts the Kafka server using the specified configuration file.
     ```sh
     kafka-server-start.sh ~/kafka_2.13-3.9.0/config/server.properties --override log.dirs=/tmp/kafka-logs
     ```
-    - `--override <property=value>`: Overrides the specified configuration property.
 
 ### Alias Commands:
 ```sh
@@ -76,12 +74,10 @@ This command creates a new Kafka topic named `test` with 1 partition and a repli
     ```sh
     kafka-topics.sh --bootstrap-server localhost:9092 --create --topic test --partitions 1 --replication-factor 1 --config cleanup.policy=compact
     ```
-    - `--config <name=value>`: Sets a topic-level configuration property.
 - `--if-not-exists`: Only create the topic if it does not already exist.
     ```sh
     kafka-topics.sh --bootstrap-server localhost:9092 --create --topic test --partitions 1 --replication-factor 1 --if-not-exists
     ```
-    - `--if-not-exists`: Ensures the topic is created only if it does not already exist.
 
 ### Delete Kafka Topic:
 ```sh
@@ -94,7 +90,6 @@ This command deletes the specified Kafka topic.
     ```sh
     kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic test --if-exists
     ```
-    - `--if-exists`: Ensures the topic is deleted only if it exists.
 
 ### Alias Command:
 ```sh
@@ -113,7 +108,6 @@ This command sends data from the `sample.csv` file to the Kafka topic named `tes
     ```sh
     kafka-console-producer.sh --bootstrap-server localhost:9092 --topic test --property parse.key=true < /Users/gandharvpathak/workspace/kafka/kafka/sample.csv
     ```
-    - `--property <name=value>`: Sets a producer property.
 
 ### Read Data Using Kafka Console Consumer:
 ```sh
@@ -126,17 +120,14 @@ This command reads data from the Kafka topic named `test` from the beginning usi
     ```sh
     kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning --timeout-ms 1000
     ```
-    - `--timeout-ms <ms>`: Sets the timeout in milliseconds.
 - `--max-messages`: Specifies the maximum number of messages to read.
     ```sh
     kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning --max-messages 10
     ```
-    - `--max-messages <num>`: Sets the maximum number of messages to read.
 - `--property`: Sets a property for the consumer (e.g., `print.key=true`).
     ```sh
     kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning --property print.key=true
     ```
-    - `--property <name=value>`: Sets a consumer property.
 
 ## Commands for Remote Broker
 
