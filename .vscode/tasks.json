@@ -1,0 +1,87 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Start Zookeeper",
+            "type": "shell",
+            "command": "zookeeper-server-start.sh",
+            "args": [
+                "~/kafka_2.13-3.9.0/config/zookeeper.properties"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Start Kafka Server",
+            "type": "shell",
+            "command": "kafka-server-start.sh",
+            "args": [
+                "~/kafka_2.13-3.9.0/config/server.properties"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Create Kafka Topic",
+            "type": "shell",
+            "command": "kafka-topics.sh",
+            "args": [
+                "--bootstrap-server",
+                "localhost:9092",
+                "--create",
+                "--topic",
+                "${input:topicName}",
+                "--partitions",
+                "${input:numPartitions}",
+                "--replication-factor",
+                "1"
+            ],
+            "group": "none",
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": []
+        },
+         {
+            "label": "List Kafka Topic",
+            "type": "shell",
+            "command": "kafka-topics.sh",
+            "args": [
+               "--bootstrap-server", "localhost:9092",
+               "--list"
+            ],
+            "group": "none",
+            "presentation": {
+               "reveal": "always"
+            },
+            "problemMatcher": []
+         }
+    ],
+    "inputs": [
+        {
+            "id": "topicName",
+            "type": "promptString",
+            "description": "Enter the Kafka topic name"
+        },
+        {
+            "id": "numPartitions",
+            "type": "promptString",
+            "description": "Enter the number of partitions",
+            "default": "1"
+        }
+    ]
+}
