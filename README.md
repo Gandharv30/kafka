@@ -184,6 +184,12 @@ kafka-topics.sh --bootstrap-server remote-broker:9092 --create --topic test --pa
 
 This command creates a new Kafka topic named `test` on a remote broker with 1 partition and a replication factor of 1.
 
+**NOTE** Multiple brokers can be added simple by
+
+``` sh
+--bootstrap-server broker1:9092,broker2:9092,broker3:9092
+```
+
 #### Delete Kafka Topic on Remote Broker
 
 ```sh
