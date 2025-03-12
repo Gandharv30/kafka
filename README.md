@@ -103,6 +103,12 @@ This command creates a new Kafka topic named `test` with 1 partition and a repli
     kafka-topics.sh --bootstrap-server localhost:9092 --create --topic test --partitions 1 --replication-factor 1 --if-not-exists
     ```
 
+- **create with multiple brokers:**
+
+ ```sh
+    kafka-topics.sh --bootstrap-server broker1:9092,broker2:9092,broker3:9092 --create --topic test --partitions 1 --replication-factor 1 --if-not-exists
+    ```
+
 #### Delete Kafka Topic
 
 ```sh
