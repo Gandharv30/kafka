@@ -65,6 +65,7 @@ This command starts the Kafka server using the specified configuration file.
     ```sh
     kafka-server-start.sh ~/kafka_2.13-3.9.0/config/server.properties --override log.dirs=/tmp/kafka-logs
     ```
+**NOTE:** Each broker should have a unique log directory other wise it would throw an error - "could not find broker_id in meta.properties file"
 
 ### Alias Commands
 
